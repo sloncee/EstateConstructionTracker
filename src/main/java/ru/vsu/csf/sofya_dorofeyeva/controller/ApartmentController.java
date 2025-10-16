@@ -14,8 +14,13 @@ public class ApartmentController implements ControllerInterface<Apartment> {
     }
 
     @Override
-    public void save(Apartment apartment) {
-        service.save(apartment);
+    public void add(Apartment apartment) {
+        service.add(apartment);
+    }
+
+    @Override
+    public void update(Apartment apartment) {
+        service.update(apartment);
     }
 
     @Override

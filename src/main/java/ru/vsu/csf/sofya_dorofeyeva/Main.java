@@ -8,13 +8,14 @@ import ru.vsu.csf.sofya_dorofeyeva.service.*;
 
 public class Main {
     public static void main(String[] args) {
-        AppContext context = new AppContext();
-        Console.start(
-                context.apartmentController(),
-                context.buildingController(),
-                context.clientController(),
-                context.employeeController(),
-                context.floorController()
-        );
+        try (AppContext context = new AppContext()) {
+            Console.start(
+                    context.apartmentController(),
+                    context.buildingController(),
+                    context.clientController(),
+                    context.employeeController(),
+                    context.floorController()
+            );
+        }
     }
 }

@@ -14,8 +14,13 @@ public class EmployeeController implements ControllerInterface<Employee> {
     }
 
     @Override
-    public void save(Employee building) {
-        service.save(building);
+    public void add(Employee employee) {
+        service.add(employee);
+    }
+
+    @Override
+    public void update(Employee employee) {
+        service.update(employee);
     }
 
     @Override

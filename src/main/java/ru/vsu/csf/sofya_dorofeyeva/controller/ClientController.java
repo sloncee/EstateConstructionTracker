@@ -14,8 +14,13 @@ public class ClientController implements ControllerInterface<Client> {
     }
 
     @Override
-    public void save(Client apartment) {
-        service.save(apartment);
+    public void add(Client client) {
+        service.add(client);
+    }
+
+    @Override
+    public void update(Client client) {
+        service.update(client);
     }
 
     @Override

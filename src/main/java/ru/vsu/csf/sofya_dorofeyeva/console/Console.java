@@ -85,8 +85,6 @@ public class Console {
     private static <T> void addEntity(Scanner scanner, ControllerInterface<T> controller, String entityName) {
         switch (entityName) {
             case "Apartment" -> {
-                System.out.print("Enter apartment ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter floor ID: ");
                 int floorId = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter entrance (0 if none): ");
@@ -102,13 +100,11 @@ public class Console {
                 int roomsCount = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter price: ");
                 int price = Integer.parseInt(scanner.nextLine());
-                Apartment apartment = new Apartment(id, floorId, entrance, apartmentNumber, totalArea, livingArea, roomsCount, price, ApartmentStatus.AVAILABLE, null, null);
-                controller.save((T) apartment);
+                Apartment apartment = new Apartment(0, floorId, entrance, apartmentNumber, totalArea, livingArea, roomsCount, price, ApartmentStatus.AVAILABLE, null, null);
+                controller.add((T) apartment);
                 System.out.println("Apartment added.");
             }
             case "Building" -> {
-                System.out.print("Enter building ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter address: ");
                 String address = scanner.nextLine();
                 System.out.print("Enter residential complex name: ");
@@ -123,26 +119,22 @@ public class Console {
                 LocalDate plannedDate = LocalDate.parse(scanner.nextLine());
                 System.out.print("Enter commissioning date (yyyy-mm-dd): ");
                 LocalDate commissioningDate = LocalDate.parse(scanner.nextLine());
-                Building building = new Building(id, address, complexName, floorsCount, entrancesCount, startDate, plannedDate, commissioningDate);
-                controller.save((T) building);
+                Building building = new Building(0, address, complexName, floorsCount, entrancesCount, startDate, plannedDate, commissioningDate);
+                controller.add((T) building);
                 System.out.println("Building added.");
             }
             case "Client" -> {
-                System.out.print("Enter client ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter full name: ");
                 String fullName = scanner.nextLine();
                 System.out.print("Enter email: ");
                 String email = scanner.nextLine();
                 System.out.print("Enter phone: ");
                 String phone = scanner.nextLine();
-                Client client = new Client(id, email, fullName, phone);
-                controller.save((T) client);
+                Client client = new Client(0, email, fullName, phone);
+                controller.add((T) client);
                 System.out.println("Client added.");
             }
             case "Employee" -> {
-                System.out.print("Enter employee ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter full name: ");
                 String fullName = scanner.nextLine();
                 System.out.print("Enter email: ");
@@ -153,21 +145,19 @@ public class Console {
                 String password = scanner.nextLine();
                 System.out.print("Enter role (ADMIN, MANAGER, AGENT): ");
                 EmployeeRole role = EmployeeRole.valueOf(scanner.nextLine().toUpperCase());
-                Employee employee = new Employee(id, email, fullName, phone, password, role);
-                controller.save((T) employee);
+                Employee employee = new Employee(0, email, fullName, phone, password, role);
+                controller.add((T) employee);
                 System.out.println("Employee added.");
             }
             case "Floor" -> {
-                System.out.print("Enter floor ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter building ID: ");
                 int buildingId = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter floor number: ");
                 int floorNumber = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter plan file path: ");
                 String planFilePath = scanner.nextLine();
-                Floor floor = new Floor(id, buildingId, floorNumber, planFilePath);
-                controller.save((T) floor);
+                Floor floor = new Floor(0, buildingId, floorNumber, planFilePath);
+                controller.add((T) floor);
                 System.out.println("Floor added.");
             }
         }
@@ -201,7 +191,7 @@ public class Console {
                     System.out.print("New price (" + apt.getPrice() + "): ");
                     input = scanner.nextLine();
                     if (!input.isEmpty()) apt.setPrice(Integer.parseInt(input));
-                    controller.save((T) apt);
+                    controller.update((T) apt);
                     System.out.println("Apartment updated.");
                 }
                 case "Building" -> {
@@ -227,7 +217,7 @@ public class Console {
                     System.out.print("New commissioning date (" + b.getCommissioningDate() + "): ");
                     input = scanner.nextLine();
                     if (!input.isEmpty()) b.setCommissioningDate(LocalDate.parse(input));
-                    controller.save((T) b);
+                    controller.update((T) b);
                     System.out.println("Building updated.");
                 }
                 case "Client" -> {
@@ -241,7 +231,7 @@ public class Console {
                     System.out.print("New phone (" + c.getPhone() + "): ");
                     input = scanner.nextLine();
                     if (!input.isEmpty()) c.setPhone(input);
-                    controller.save((T) c);
+                    controller.update((T) c);
                     System.out.println("Client updated.");
                 }
                 case "Employee" -> {
@@ -261,7 +251,7 @@ public class Console {
                     System.out.print("New role (" + e.getRole() + "): ");
                     input = scanner.nextLine();
                     if (!input.isEmpty()) e.setRole(EmployeeRole.valueOf(input.toUpperCase()));
-                    controller.save((T) e);
+                    controller.update((T) e);
                     System.out.println("Employee updated.");
                 }
                 case "Floor" -> {
@@ -275,7 +265,7 @@ public class Console {
                     System.out.print("New plan file path (" + f.getPlanFilePath() + "): ");
                     input = scanner.nextLine();
                     if (!input.isEmpty()) f.setPlanFilePath(input);
-                    controller.save((T) f);
+                    controller.update((T) f);
                     System.out.println("Floor updated.");
                 }
             }

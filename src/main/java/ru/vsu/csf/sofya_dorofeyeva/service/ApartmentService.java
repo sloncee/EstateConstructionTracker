@@ -14,8 +14,13 @@ public class ApartmentService implements ServiceInterface<Apartment> {
     }
 
     @Override
-    public void save(Apartment apartment) {
-        repository.save(apartment);
+    public void add(Apartment apartment) {
+        repository.add(apartment);
+    }
+
+    @Override
+    public void update(Apartment apartment) {
+        repository.update(apartment);
     }
 
     @Override

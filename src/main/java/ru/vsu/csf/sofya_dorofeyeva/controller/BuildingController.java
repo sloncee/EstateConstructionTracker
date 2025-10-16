@@ -14,8 +14,13 @@ public class BuildingController implements ControllerInterface<Building> {
     }
 
     @Override
-    public void save(Building building) {
-        service.save(building);
+    public void add(Building building) {
+        service.add(building);
+    }
+
+    @Override
+    public void update(Building building) {
+        service.update(building);
     }
 
     @Override

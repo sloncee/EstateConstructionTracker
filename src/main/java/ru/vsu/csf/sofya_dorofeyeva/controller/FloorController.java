@@ -14,8 +14,13 @@ public class FloorController implements ControllerInterface<Floor> {
     }
 
     @Override
-    public void save(Floor floor) {
-        service.save(floor);
+    public void add(Floor floor) {
+        service.add(floor);
+    }
+
+    @Override
+    public void update(Floor floor) {
+        service.update(floor);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ru.vsu.csf.sofya_dorofeyeva.database_hashmaps.table;
+package ru.vsu.csf.sofya_dorofeyeva.database.hashmaps.table;
 
 import ru.vsu.csf.sofya_dorofeyeva.model.Employee;
 import ru.vsu.csf.sofya_dorofeyeva.model.enums.EmployeeRole;

@@ -14,8 +14,13 @@ public class FloorService implements ServiceInterface<Floor>{
     }
 
     @Override
-    public void save(Floor floor) {
-        repository.save(floor);
+    public void add(Floor floor) {
+        repository.add(floor);
+    }
+
+    @Override
+    public void update(Floor floor) {
+        repository.update(floor);
     }
 
     @Override

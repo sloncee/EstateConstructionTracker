@@ -37,6 +37,10 @@ public class Apartment {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getFloorId() {
         return floorId;
     }
@@ -105,7 +109,7 @@ public class Apartment {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(Integer clientId) {
         this.clientId = clientId;
     }
 
@@ -113,7 +117,7 @@ public class Apartment {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 

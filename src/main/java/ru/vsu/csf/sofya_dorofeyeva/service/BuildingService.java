@@ -14,8 +14,13 @@ public class BuildingService implements ServiceInterface<Building> {
     }
 
     @Override
-    public void save(Building building) {
-        repository.save(building);
+    public void add(Building building) {
+        repository.add(building);
+    }
+
+    @Override
+    public void update(Building building) {
+        repository.update(building);
     }
 
     @Override

@@ -1,6 +1,6 @@
-package ru.vsu.csf.sofya_dorofeyeva.database_hashmaps;
+package ru.vsu.csf.sofya_dorofeyeva.database.hashmaps;
 
-import ru.vsu.csf.sofya_dorofeyeva.database_hashmaps.table.*;
+import ru.vsu.csf.sofya_dorofeyeva.database.hashmaps.table.*;
 
 public class EstateDatabase {
     private ApartmentTable apartmentTable;

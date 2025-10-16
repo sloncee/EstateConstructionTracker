@@ -21,6 +21,10 @@ public class Floor {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getBuildingId() {
         return buildingId;
     }

@@ -14,8 +14,13 @@ public class EmployeeService implements ServiceInterface<Employee> {
     }
 
     @Override
-    public void save(Employee employee) {
-        repository.save(employee);
+    public void add(Employee employee) {
+        repository.add(employee);
+    }
+
+    @Override
+    public void update(Employee employee) {
+        repository.update(employee);
     }
 
     @Override

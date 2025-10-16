@@ -14,8 +14,13 @@ public class ClientService implements ServiceInterface<Client> {
     }
 
     @Override
-    public void save(Client client) {
-        repository.save(client);
+    public void add(Client client) {
+        repository.add(client);
+    }
+
+    @Override
+    public void update(Client client) {
+        repository.update(client);
     }
 
     @Override
